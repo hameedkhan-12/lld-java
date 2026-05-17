@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 interface Account {
-    void deposit(double ammount);
-    void withdraw(double ammount);
+    void deposit(double amount);
+    void withdraw(double amount);
 }
 
 class SavingAccount implements Account {
