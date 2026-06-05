@@ -6,12 +6,11 @@ import MusicPlayerApplication.models.Song;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class PlaylistManager {
     private static PlaylistManager instance = null;
     private Map<String, Playlist> playlists;
 
-    private PlaylistManager(){
+    private PlaylistManager() {
         playlists = new HashMap<>();
     }
 
@@ -22,25 +21,24 @@ public class PlaylistManager {
         return instance;
     }
 
-    public void createPlaylist(String name){
-        if(playlists.containsKey(name)){
-            throw new RuntimeException("Playlist already exists");
+    public void createPlaylist(String name) {
+        if (playlists.containsKey(name)) {
+            throw new RuntimeException("Playlist \"" + name + "\" already exists.");
         }
         playlists.put(name, new Playlist(name));
     }
 
-    public void addSongToPlaylist(String playlistName, Song song){
-        if(!playlists.containsKey(playlistName)){
-            throw new RuntimeException("Playlist does not exist");
+    public void addSongToPlaylist(String playlistName, Song song) {
+        if (!playlists.containsKey(playlistName)) {
+            throw new RuntimeException("Playlist \"" + playlistName + "\" not found.");
         }
-
         playlists.get(playlistName).addSongToPlaylist(song);
     }
 
-    public Playlist getPlaylist(String playlistName){
-        if(!playlists.containsKey(playlistName)){
-            throw new RuntimeException("Playlist does not exist");
+    public Playlist getPlaylist(String name) {
+        if (!playlists.containsKey(name)) {
+            throw new RuntimeException("Playlist \"" + name + "\" not found.");
         }
-        return playlists.get(playlistName);
+        return playlists.get(name);
     }
 }

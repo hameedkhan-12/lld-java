@@ -5,28 +5,29 @@ import java.util.List;
 
 public class Playlist {
     private String playlistName;
-    private List<Song> songs = new ArrayList<>();
+    private List<Song> songList;
 
-    public Playlist(String playlistName) {
-        this.playlistName = playlistName;
+    public Playlist(String name) {
+        this.playlistName = name;
+        this.songList = new ArrayList<>();
     }
 
-    public String getPlaylistName(){
+    public String getPlaylistName() {
         return playlistName;
     }
 
-    public List<Song> getSongs(){
-        return songs;
+    public List<Song> getSongs() {
+        return songList;
     }
 
-    public int getSize(){
-        return songs.size();
+    public int getSize() {
+        return songList.size();
     }
 
-    public void addSongToPlaylist(Song song){
-        if(song == null){
-            throw new RuntimeException("Song cannot be null");
+    public void addSongToPlaylist(Song song) {
+        if (song == null) {
+            throw new RuntimeException("Cannot add null song to playlist.");
         }
-        songs.add(song);
+        songList.add(song);
     }
 }
