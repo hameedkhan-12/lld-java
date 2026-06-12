@@ -40,8 +40,6 @@ public class HttpRequest {
         System.out.println("Timeout: " + timeout);
         System.out.println("Request executed successfully.");
     }
-}
-
 public static class HttpRequestBuilder {
     private HttpRequest req;
 
@@ -91,4 +89,5 @@ public static class HttpRequestBuilder {
 
         return req;
     }
+}
 }
